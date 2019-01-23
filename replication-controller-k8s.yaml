@@ -17,4 +17,4 @@ spec:
       - name: hello-app-py-ctr
         image: bzumby/alp_py_pod_img
         ports:
-        - containerPort: 8080
+        - containerPort: 5000
