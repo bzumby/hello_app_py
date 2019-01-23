@@ -18,3 +18,22 @@ spec:
         image: bzumby/alp_py_pod_img
         ports:
         - containerPort: 5000
+      #   volumeMounts:
+      #   - mountPath: /var/run/docker.sock
+      #     name: docker-coket
+      #   volumeMounts:
+      #   - mountPath: /usr/local/bin/docker
+      #     name: docker-binary
+      # volumes:
+      # - name: docker-soket
+      #   hostPath:
+      #     # directory location on host
+      #     path: /var/run/docker.sock
+      #     # this field is optional
+      #     type: Socket
+      # - name: docker-binary
+      #   hostPath:
+      #     # directory location on host
+      #     path: /usr/local/bin/docker
+      #     # this field is optional
+      #     type: File
