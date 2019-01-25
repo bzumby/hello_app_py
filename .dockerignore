@@ -1,2 +1,4 @@
 Dockerfile
-replication.yaml
+*/jenkins*
+*/kubernetes*
+*git*

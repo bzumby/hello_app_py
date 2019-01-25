@@ -1,0 +1,21 @@
+- job:
+    name: hello_app_py_shelljob
+    project-type: freestyle
+    defaults: global
+    description: 'Dont edit through WEEEB!'
+    scm:
+      - git:
+          url: https://github.com/bzumby/hello_app_py.git
+          merge:
+            branch: master
+            fast-forward-mode: FF_ONLY
+    triggers:
+      - pollscm:
+          cron: "* * * * *"
+          ignore-post-commit-hooks: True
+    builders:
+      - shell:
+          command: "repo='bzumby' && \
+                    docker build -t ${repo}/hello_app_py:${BUILD_NUMBER} -t ${repo}/hello_app_py:latest . && \
+                    docker push ${repo}/hello_app_py:${BUILD_NUMBER} && \
+                    docker push ${repo}/hello_app_py:latest"
