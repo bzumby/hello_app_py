@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: hello-app-py-rc
+spec:
+  replicas: 1
+  selector:
+    app: hello_app_py
+  template:
+    metadata:
+      name: hello_app_py
+      labels:
+        app: hello_app_py
+
+    spec:
+      containers:
+      - name: hello-app-py-ctr
+        image: bzumby/hello_app_py
+        ports:
+        - containerPort: 5000
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-app-py-srv
+  labels:
+    app: hello_app_py
+spec:
+  selector:
+    app: hello_app_py
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
