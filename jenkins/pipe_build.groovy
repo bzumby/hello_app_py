@@ -15,7 +15,7 @@ node {
 
 		stage ('Docker Build') {
 			def image = docker.build("bzumby/hello_app_py:${env.BUILD_ID}")
-				withDockerRegistry([credentialsId: 'docker_hub_bz', url: 'https://index.docker.io']) {
+				withDockerRegistry([credentialsId: 'docker_hub_bz', url: 'https://index.docker.io/v1/']) {
             	image.push() }
 		}
 	}
