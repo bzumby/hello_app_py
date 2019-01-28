@@ -1,24 +1,26 @@
-node {
+node ('master'){
 
 		stage ('GIT Fetch & PreMerge') {
 			checkout ([
 			$class: 'GitSCM',
-				url: 'https://github.com/bzumby/hello_app_py.git',
-				branches: [[name: 'master']],
 				extensions: [
 					[$class: 'PruneStaleBranch'],
 					[$class: 'CleanCheckout'],
 					[$class: 'PreBuildMerge',
 						options: [
 							fastForwardMode: 'FF_ONLY',
-							mergeRemote: 'origin',
+							mergeRemote: 'hello_remote',
 							mergeTarget: 'master'
 						]	
+					]
+				],
+				userRemoteConfigs: [
+				    [name: 'hello_remote',
+					 url: 'https://github.com/bzumby/hello_app_py.git'
 					]
 				]
 			])
 		}
-
 
 		stage ('Docker Build') {
 			def image = docker.build("bzumby/hello_app_py:${env.BUILD_ID}")

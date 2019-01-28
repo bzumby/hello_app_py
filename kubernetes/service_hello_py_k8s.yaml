@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-app-py-srv
+  labels:
+    app: hello-app-py
+spec:
+  selector:
+    app: hello-app-py
+  type: NodePort
+  ports:
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
