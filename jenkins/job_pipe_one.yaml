@@ -3,15 +3,15 @@
     project-type: pipeline
     defaults: global
     description: 'Dont edit through WEEEB!'
-    scm:
-      - git:
-          url: https://github.com/bzumby/hello_app_py.git
-          merge:
-            branch: master
-            fast-forward-mode: FF_ONLY
+    # scm:
+    #   - git:
+    #       url: https://github.com/bzumby/hello_app_py.git
+    #       merge:
+    #         branch: master
+    #         fast-forward-mode: FF_ONLY
     triggers:
       - pollscm:
-          cron: "* * * * *"
+          cron: "*/30 * * * *"
           ignore-post-commit-hooks: True
     dsl:
       !include-raw: pipe_build.groovy
