@@ -1,5 +1,5 @@
 node ('master') {
-    def BUILD_JOB = 'hello_app_py_pipe'
+    def BUILD_JOB = 'hello_app_py_build' // to run job inside other ws
     ws("$JENKINS_HOME/workspace/${BUILD_JOB}") {
 	def buildNum = Jenkins.instance.getItem("${BUILD_JOB}").lastSuccessfulBuild.number
     sh 'pwd'

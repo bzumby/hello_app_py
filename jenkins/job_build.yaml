@@ -1,8 +1,8 @@
 - job:
-    name: hello_app_py_pipe
+    name: hello_app_py_build
     project-type: pipeline
     defaults: global
-    description: 'Dont edit through WEEEB!'
+    description: 'HelloWorld Python app build'
     # scm:
     #   - git:
     #       url: https://github.com/bzumby/hello_app_py.git

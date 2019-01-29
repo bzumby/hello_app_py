@@ -18,6 +18,6 @@ spec:
     spec:
       containers:
       - name: hello-app-py-ctr
-        image: bzumby/hello_app_py
+        image: bzumby/hello_app_py:v1.3
         ports:
         - containerPort: 5000

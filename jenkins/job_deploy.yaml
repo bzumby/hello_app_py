@@ -1,0 +1,8 @@
+- job:
+    name: hello_app_py_deploy
+    project-type: pipeline
+    defaults: global
+    description: 'Kubernetes Deploy Lucy'
+    # triggers:
+    dsl:
+      !include-raw: pipe_deploy.groovy
